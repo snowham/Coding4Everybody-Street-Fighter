@@ -18,14 +18,14 @@ class Hitbox(object):
             self.Y2 = Y1
         self.entity = entitySprite
         self.isAttack = False
-        self.color = reference.BLUE
+        self.color = reference.PURPLE
     
     def setIsAttack(self, isAttack):
         self.isAttack = isAttack
         if isAttack:
-            self.color = reference.RED
+            self.color = reference.FUCHSIA
         else:
-            self.color = reference.BLUE
+            self.color = reference.PURPLE
 
     def getBoundingBox(self):
         trueX1 = self.X1 + self.entity.pos[0]
@@ -44,4 +44,12 @@ class Hitbox(object):
 
     def draw(self):
         X1, Y1, X2, Y2 = self.getBoundingBox()
-        pygame.draw.rect(reference.SCREEN, self.color, (X1, Y1, X2 - X1, Y2 - Y1), 3)
+        X1 *= reference.WIDTH
+        X1 //= 750
+        Y1 *= reference.HEIGHT
+        Y1 //= 580
+        X2 *= reference.WIDTH
+        X2 //= 750
+        Y2 *= reference.HEIGHT
+        Y2 //= 580
+        pygame.draw.rect(reference.SCREEN, self.color, (X1, Y1, X2 - X1, Y2 - Y1), 5)

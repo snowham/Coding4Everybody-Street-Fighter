@@ -13,6 +13,11 @@ class EntitySprite(Entity):
         self.isJump = False
 
     def getDrawPos(self):
+        pos = self.pos
+        pos[0] *= reference.WIDTH
+        pos[0] //= 750
+        pos[1] *= reference.HEIGHT
+        pos[1] //= 580
         return self.pos
 
     def draw(self):

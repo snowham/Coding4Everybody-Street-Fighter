@@ -52,7 +52,8 @@ class EntityFighter(entity.EntitySprite):
             self.pos[0] = 0
         elif self.pos[0] > reference.WIDTH - 106:
             self.pos[0] = reference.WIDTH - 106
-
+            
+#Punching Method
     def punch(self):
         if self.punchTimer <= - reference.PUNCH_COOLDOWN:
             self.setPunching(True)
@@ -65,7 +66,7 @@ class EntityFighter(entity.EntitySprite):
                 self.img = self.R_PUNCH
                 self.attackHitbox = hitbox.Hitbox(80, 20, 150, 40, self)
                 self.attackHitbox.setIsAttack(True)
-            if self.direction == 'l':
+            elif self.direction == 'l':
                 self.attackHitbox = hitbox.Hitbox(-50, 20, 20, 40, self)
                 self.attackHitbox.setIsAttack(True)
                 self.img = self.L_PUNCH
@@ -90,10 +91,12 @@ class EntityFighter(entity.EntitySprite):
         if self.health <= 0:
             self.health = 0
             registry.Registry.deregister_entity(self)
+#End of Punching Method
         
     def getDrawPos(self):
-        drawX = self.pos[0]
-        drawY = self.pos[1]
+        pos = super().getDrawPos()
+        drawX = pos[0]
+        drawY = pos[1]
         if self.isPunching and self.direction == 'l':
             drawX -= 30
         return [drawX, drawY]
@@ -114,3 +117,7 @@ class EntityFighter(entity.EntitySprite):
             self.punchTimer -= 1
         if self.punchTimer == 0:
             self.setPunching(False)
+        if reference.DRAW_HITBOXES:
+          self.hitbox.draw()
+          if self.isPunching:
+              self.attackHitbox.draw()

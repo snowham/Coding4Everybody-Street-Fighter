@@ -10,12 +10,18 @@ class HealthBar(entity.EntitySprite):
         self.oldHealthTimer = 0
         self.startX = startX
         self.startY = startY
+        self.img = None
     
     def refreshHealthBarFromDamage(self):
         self.oldHealthTimer = reference.HEALTH_BAR_OLD_HEALTH_DELAY
 
     def draw(self):
-        pygame.draw.rect(reference.SCREEN, reference.RED, [self.startX, self.startY, self.fighter.health * reference.HEALTH_BAR_AMPLIFIER, reference.HEALTH_BAR_HEIGHT])
+        startX = self.startX * reference.WIDTH // 750
+        startY = self.startY * reference.HEIGHT // 580
+        health_length = self.fighter.health * reference.WIDTH // 750
+        old_health = self.oldHealth * reference.WIDTH // 750
+        height = reference.HEALTH_BAR_HEIGHT * reference.HEIGHT // 580
+        pygame.draw.rect(reference.SCREEN, reference.RED, [startX, startY, health_length * reference.HEALTH_BAR_AMPLIFIER, reference.HEALTH_BAR_HEIGHT])
         pygame.draw.rect(reference.SCREEN, reference.DARK_RED, [self.fighter.health * reference.HEALTH_BAR_AMPLIFIER + self.startX, self.startY, (self.oldHealth - self.fighter.health) * reference.HEALTH_BAR_AMPLIFIER, reference.HEALTH_BAR_HEIGHT])
         pygame.draw.rect(reference.SCREEN, reference.BLACK, [self.oldHealth * reference.HEALTH_BAR_AMPLIFIER + self.startX, self.startY, (self.fighter.maxHealth- self.oldHealth) * reference.HEALTH_BAR_AMPLIFIER, reference.HEALTH_BAR_HEIGHT])
         pygame.draw.rect(reference.SCREEN, reference.BROWN, [self.startX - reference.HEALTH_BAR_BORDER_WIDTH, self.startY - reference.HEALTH_BAR_BORDER_WIDTH, self.fighter.maxHealth * reference.HEALTH_BAR_AMPLIFIER + 2 * reference.HEALTH_BAR_BORDER_WIDTH, reference.HEALTH_BAR_HEIGHT + 2 * reference.HEALTH_BAR_BORDER_WIDTH], reference.HEALTH_BAR_BORDER_WIDTH)
