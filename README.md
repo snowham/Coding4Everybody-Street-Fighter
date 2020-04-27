@@ -24,6 +24,7 @@
 #### SOHAM 
 - Switched the keys back because we're playing online, not on the same computer, and if only one person is using their computer, then it's easiest when the moving keys and the punch key are far apart.
 
+<<<<<<< HEAD
 [![Run on Repl.it](https://repl.it/badge/github/snowham/Coding4Everybody-Street-Fighter)](https://repl.it/github/snowham/Coding4Everybody-Street-Fighter)
 
 # Coding4Everybody-Street-Fighter
@@ -57,3 +58,8 @@
 - I also created a start screen, and that made me create a start.py module and game_loop module. This cleaned up a BUNCH of main.py, so that all main.py does is acts as the admin module and actually executes the program.
 #### Arush
 - I changed all the variables in reference and entitySprite to be proportional with HEIGHT and WIDTH
+=======
+### 4/26
+#### SOHAM
+- I added a new character! He looks the same as our blue guy, but he's red. 
+>>>>>>> origin/master
