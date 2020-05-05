@@ -21,10 +21,11 @@ class HealthBar(entity.EntitySprite):
         health_length = self.fighter.health * reference.WIDTH // 750
         old_health = self.oldHealth * reference.WIDTH // 750
         height = reference.HEALTH_BAR_HEIGHT * reference.HEIGHT // 580
-        pygame.draw.rect(reference.SCREEN, reference.RED, [startX, startY, health_length * reference.HEALTH_BAR_AMPLIFIER, reference.HEALTH_BAR_HEIGHT])
-        pygame.draw.rect(reference.SCREEN, reference.DARK_RED, [self.fighter.health * reference.HEALTH_BAR_AMPLIFIER + self.startX, self.startY, (self.oldHealth - self.fighter.health) * reference.HEALTH_BAR_AMPLIFIER, reference.HEALTH_BAR_HEIGHT])
-        pygame.draw.rect(reference.SCREEN, reference.BLACK, [self.oldHealth * reference.HEALTH_BAR_AMPLIFIER + self.startX, self.startY, (self.fighter.maxHealth- self.oldHealth) * reference.HEALTH_BAR_AMPLIFIER, reference.HEALTH_BAR_HEIGHT])
-        pygame.draw.rect(reference.SCREEN, reference.BROWN, [self.startX - reference.HEALTH_BAR_BORDER_WIDTH, self.startY - reference.HEALTH_BAR_BORDER_WIDTH, self.fighter.maxHealth * reference.HEALTH_BAR_AMPLIFIER + 2 * reference.HEALTH_BAR_BORDER_WIDTH, reference.HEALTH_BAR_HEIGHT + 2 * reference.HEALTH_BAR_BORDER_WIDTH], reference.HEALTH_BAR_BORDER_WIDTH)
+        max_health = self.fighter.maxHealth * reference.WIDTH // 750
+        pygame.draw.rect(reference.SCREEN, reference.RED, [startX, startY, health_length * reference.HEALTH_BAR_AMPLIFIER, height])
+        pygame.draw.rect(reference.SCREEN, reference.DARK_RED, [health_length * reference.HEALTH_BAR_AMPLIFIER + startX, startY, (old_health - health_length) * reference.HEALTH_BAR_AMPLIFIER, height])
+        pygame.draw.rect(reference.SCREEN, reference.BLACK, [old_health * reference.HEALTH_BAR_AMPLIFIER + startX, startY, (max_health - old_health) * reference.HEALTH_BAR_AMPLIFIER, height])
+        pygame.draw.rect(reference.SCREEN, reference.BROWN, [startX - reference.HEALTH_BAR_BORDER_WIDTH, startY - reference.HEALTH_BAR_BORDER_WIDTH, max_health * reference.HEALTH_BAR_AMPLIFIER + 2 * reference.HEALTH_BAR_BORDER_WIDTH, height + 2 * reference.HEALTH_BAR_BORDER_WIDTH], reference.HEALTH_BAR_BORDER_WIDTH)
 
     def update(self):
         super().update()

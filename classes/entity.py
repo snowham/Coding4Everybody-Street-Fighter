@@ -1,4 +1,6 @@
 import reference
+import pygame
+
 
 class Entity(object):
     def update(self):
@@ -21,7 +23,10 @@ class EntitySprite(Entity):
         return self.pos
 
     def draw(self):
-        reference.SCREEN.blit(self.img, self.getDrawPos())
+        img = self.img
+        sizeX, sizeY = img.get_size()
+        img = pygame.transform.scale(img, (sizeX * reference.WIDTH // 750, sizeY * reference.HEIGHT // 580))
+        reference.SCREEN.blit(img, self.getDrawPos())
 
     def update(self):
         self.draw()

@@ -31,7 +31,7 @@ class EntityFighter(entity.EntitySprite):
         self.hasPunchHit = False
 
     def jump(self):
-        if self.pos[1] >= reference.GROUND_LEVEL:
+        if self.isTouchingGround():
             self.ySpeed = - reference.JUMP_STRENGTH
     
     def move(self, distance):
@@ -50,8 +50,8 @@ class EntityFighter(entity.EntitySprite):
                 self.img = self.F_LEFT
         if self.pos[0] < 0:
             self.pos[0] = 0
-        elif self.pos[0] > reference.WIDTH - 106:
-            self.pos[0] = reference.WIDTH - 106
+        elif self.pos[0] > 650:
+            self.pos[0] = 650
             
 #Punching Method
     def punch(self):
@@ -101,6 +101,9 @@ class EntityFighter(entity.EntitySprite):
             drawX -= 30
         return [drawX, drawY]
 
+    def isTouchingGround(self):
+        return self.pos[1] >= reference.GROUND_LEVEL
+
     def update(self):
         super().update()
         if isinstance(self.attackHitbox, hitbox.Hitbox) and not self.hasPunchHit:
@@ -108,7 +111,7 @@ class EntityFighter(entity.EntitySprite):
                 self.hasPunchHit = True
         if self.ySpeed != 0:
             self.pos[1] += self.ySpeed
-        if self.pos[1] >= reference.GROUND_LEVEL:
+        if self.isTouchingGround():
             self.ySpeed = 0
             self.pos[1] = reference.GROUND_LEVEL
         else:
