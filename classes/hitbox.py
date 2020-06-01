@@ -45,11 +45,11 @@ class Hitbox(object):
     def draw(self):
         X1, Y1, X2, Y2 = self.getBoundingBox()
         X1 *= reference.WIDTH
-        X1 //= 750
+        X1 //= reference.WIDTH
         Y1 *= reference.HEIGHT
-        Y1 //= 580
+        Y1 //= reference.HEIGHT
         X2 *= reference.WIDTH
-        X2 //= 750
+        X2 //= reference.WIDTH
         Y2 *= reference.HEIGHT
-        Y2 //= 580
+        Y2 //= reference.HEIGHT
         pygame.draw.rect(reference.SCREEN, self.color, (X1, Y1, X2 - X1, Y2 - Y1), 5)

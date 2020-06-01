@@ -16,12 +16,12 @@ class HealthBar(entity.EntitySprite):
         self.oldHealthTimer = reference.HEALTH_BAR_OLD_HEALTH_DELAY
 
     def draw(self):
-        startX = self.startX * reference.WIDTH // 750
-        startY = self.startY * reference.HEIGHT // 580
-        health_length = self.fighter.health * reference.WIDTH // 750
-        old_health = self.oldHealth * reference.WIDTH // 750
-        height = reference.HEALTH_BAR_HEIGHT * reference.HEIGHT // 580
-        max_health = self.fighter.maxHealth * reference.WIDTH // 750
+        startX = self.startX * reference.WIDTH // reference.WIDTH
+        startY = self.startY * reference.HEIGHT // reference.HEIGHT
+        health_length = self.fighter.health * reference.WIDTH // reference.WIDTH
+        old_health = self.oldHealth * reference.WIDTH // reference.WIDTH
+        height = reference.HEALTH_BAR_HEIGHT * reference.HEIGHT // reference.HEIGHT
+        max_health = self.fighter.maxHealth * reference.WIDTH // reference.WIDTH
         pygame.draw.rect(reference.SCREEN, reference.RED, [startX, startY, health_length * reference.HEALTH_BAR_AMPLIFIER, height])
         pygame.draw.rect(reference.SCREEN, reference.DARK_RED, [health_length * reference.HEALTH_BAR_AMPLIFIER + startX, startY, (old_health - health_length) * reference.HEALTH_BAR_AMPLIFIER, height])
         pygame.draw.rect(reference.SCREEN, reference.BLACK, [old_health * reference.HEALTH_BAR_AMPLIFIER + startX, startY, (max_health - old_health) * reference.HEALTH_BAR_AMPLIFIER, height])

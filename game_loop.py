@@ -1,7 +1,7 @@
 import reference
 import pygame
 import sys
-sys.path.append('/home/runner/Coding4Everybody-Street-Fighter/classes')
+sys.path.append('./classes') # This is the shorthand equivelent of what we had before, but this works universaly. 
 import entityPlayer
 import registry
 

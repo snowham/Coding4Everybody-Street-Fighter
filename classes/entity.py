@@ -17,15 +17,15 @@ class EntitySprite(Entity):
     def getDrawPos(self):
         pos = self.pos
         pos[0] *= reference.WIDTH
-        pos[0] //= 750
+        pos[0] //= reference.WIDTH
         pos[1] *= reference.HEIGHT
-        pos[1] //= 580
+        pos[1] //= reference.HEIGHT
         return self.pos
 
     def draw(self):
         img = self.img
         sizeX, sizeY = img.get_size()
-        img = pygame.transform.scale(img, (sizeX * reference.WIDTH // 750, sizeY * reference.HEIGHT // 580))
+        img = pygame.transform.scale(img, (sizeX * reference.WIDTH // reference.WIDTH, sizeY * reference.HEIGHT // reference.HEIGHT))
         reference.SCREEN.blit(img, self.getDrawPos())
 
     def update(self):

@@ -22,7 +22,7 @@ CYAN = (0, 255, 255)
 BROWN = (150, 75, 0)
 
 # basic constants to set up your game
-WIDTH = 750 #original WIDTH: 750
+WIDTH = 750#original WIDTH: 750
 HEIGHT = 580 #original HEIGHT: 580
 FPS = 30
 BGCOLOR = BLACK
@@ -55,31 +55,31 @@ HEALTH_BAR_PLAYER_2_START_Y = 20
 
 
 F1_RIGHT = pygame.transform.scale(pygame.image.load(
-    '/home/runner/Coding4Everybody-Street-Fighter/positions/fighter1_right.png'), (106, 157))
+    './positions/fighter1_right.png'), (106, 157))
 
 F1_LEFT = pygame.transform.scale(pygame.image.load(
-    '/home/runner/Coding4Everybody-Street-Fighter/positions/fighter1_left.png'), (106, 157))
+    './positions/fighter1_left.png'), (106, 157))
 
 L1_PUNCH = pygame.transform.scale(pygame.image.load(
-    "/home/runner/Coding4Everybody-Street-Fighter/positions/punch1_left.png"), (133, 154))
+    "./positions/punch1_left.png"), (133, 154))
 
 R1_PUNCH = pygame.transform.scale(pygame.image.load(
-    "/home/runner/Coding4Everybody-Street-Fighter/positions/punch1_right.png"), (133, 154))
+    "./positions/punch1_right.png"), (133, 154))
 
 F2_RIGHT = pygame.transform.scale(pygame.image.load(
-    '/home/runner/Coding4Everybody-Street-Fighter/positions/fighter2_right.png'), (106, 157))
+    './positions/fighter2_right.png'), (106, 157))
 
 F2_LEFT = pygame.transform.scale(pygame.image.load(
-    '/home/runner/Coding4Everybody-Street-Fighter/positions/fighter2_left.png'), (106, 157))
+    './positions/fighter2_left.png'), (106, 157))
 
 L2_PUNCH = pygame.transform.scale(pygame.image.load(
-    "/home/runner/Coding4Everybody-Street-Fighter/positions/punch2_left.png"), (133, 154))
+    "./positions/punch2_left.png"), (133, 154))
 
 R2_PUNCH = pygame.transform.scale(pygame.image.load(
-    "/home/runner/Coding4Everybody-Street-Fighter/positions/punch2_right.png"), (133, 154))
+    "./positions/punch2_right.png"), (133, 154))
 
 BACKGROUND = pygame.transform.scale(pygame.image.load(
-    "/home/runner/Coding4Everybody-Street-Fighter/positions/background.gif"), (WIDTH, HEIGHT))
+    "./positions/background.gif"), (WIDTH, HEIGHT))
 
 
 SCREEN = pygame.display.set_mode((WIDTH, HEIGHT))
