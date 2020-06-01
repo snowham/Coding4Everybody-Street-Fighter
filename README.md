@@ -34,4 +34,3 @@
 ### 4/26
 #### SOHAM
 - I added a new character! He looks the same as our blue guy, but he's red. 
->>>>>>> origin/master
