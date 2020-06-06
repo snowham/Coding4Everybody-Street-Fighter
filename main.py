@@ -3,7 +3,7 @@ import pygame
 import game_loop
 import start
 import sys
-sys.path.append('/home/runner/Coding4Everybody-Street-Fighter/classes')
+sys.path.append('./Coding4Everybody-Street-Fighter/classes')
 import entityPlayer
 import registry
 
