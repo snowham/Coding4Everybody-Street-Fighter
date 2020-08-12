@@ -3,7 +3,7 @@ import pygame
 
 class EntityPlayer(entityFighter.EntityFighter):
     def keyDownEvent(self, event):
-        if (event.key == pygame.K_COMMA and self.fighterIndex == 1) or (event.key == pygame.K_x and self.fighterIndex == 2):
+        if (event.key == pygame.K_s and self.fighterIndex == 1) or (event.key == pygame.K_DOWN and self.fighterIndex == 2):
             self.punch()
         if (event.key == pygame.K_w and self.fighterIndex == 1) or (event.key == pygame.K_UP and self.fighterIndex == 2):
             self.jump()
